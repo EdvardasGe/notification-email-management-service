@@ -11,9 +11,9 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public void sendSimpleEmail(String receiver, String subject, String body) {
+    public void sendSimpleEmail(String recipient, String subject, String body) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(receiver);
+        message.setTo(recipient);
         message.setSubject(subject);
         message.setText(body);
         mailSender.send(message);

@@ -12,10 +12,10 @@ public class EmailController {
     private EmailService emailService;
 
     @PostMapping("/send")
-    public String sendEmail(@RequestParam String receiver,
+    public String sendEmail(@RequestParam String recipient,
                             @RequestParam String subject,
                             @RequestParam String body) {
-        emailService.sendSimpleEmail(receiver, subject, body);
-        return "Email sent successfully to " + receiver;
+        emailService.sendSimpleEmail(recipient, subject, body);
+        return "Email sent successfully to " + recipient;
     }
 }
