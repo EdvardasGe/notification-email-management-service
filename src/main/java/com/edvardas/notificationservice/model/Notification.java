@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 @Entity
 @Table(name = "notifications")
 public class Notification {
@@ -18,12 +17,25 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String messageBody;
-
     @Column(name = "recipient_email")
     private String recipientEmail;
 
+    @Column(name = "subject")
+    private String subject;
+
+    @Column(name = "notification_body")
+    private String notificationBody;
+
     @Column(name = "sent_at")
     private LocalDateTime sentAt;
+
+    public Notification() {}
+
+    public Notification(String recipientEmail, String subject, String notificationBody, LocalDateTime sentAt) {
+        this.recipientEmail = recipientEmail;
+        this.subject = subject;
+        this.notificationBody = notificationBody;
+        this.sentAt = sentAt;
+    }
 
 }
