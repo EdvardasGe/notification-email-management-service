@@ -13,6 +13,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.util.Objects;
+
 @ExtendWith(MockitoExtension.class)
 public class EmailServiceTest {
 
@@ -46,7 +48,7 @@ public class EmailServiceTest {
         expectedEmail.setText(body);
 
         assertEquals(expectedEmail, sentEmail, "Messages do not match");
-        assertEquals(expectedEmail.getTo()[0], sentEmail.getTo()[0], "Recipient email does not match");
+        assertEquals(Objects.requireNonNull(expectedEmail.getTo())[0], Objects.requireNonNull(sentEmail.getTo())[0], "Recipient email does not match");
         assertEquals(expectedEmail.getSubject(), sentEmail.getSubject(), "Email subject does not match");
         assertEquals(expectedEmail.getText(), sentEmail.getText(), "Email body does not match");
 
