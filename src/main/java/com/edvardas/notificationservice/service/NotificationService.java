@@ -17,7 +17,7 @@ public class NotificationService {
     private EmailService emailService;
 
     public void sendNotification(String recipientEmail, String subject, String notificationBody) {
-        Notification notification = new Notification(subject, notificationBody, recipientEmail, LocalDateTime.now());
+        Notification notification = new Notification(recipientEmail, subject, notificationBody, LocalDateTime.now());
         notificationRepository.save(notification);
 
         emailService.sendSimpleEmail(recipientEmail, "New Notification", notificationBody);
