@@ -30,7 +30,7 @@ public class EmailServiceTest {
     }
 
     @Test
-    public void testSendSimpleEmail() {
+    public void send_simple_email() {
         String recipient = "test@example.com";
         String subject = "Test Subject";
         String body = "Test Body";

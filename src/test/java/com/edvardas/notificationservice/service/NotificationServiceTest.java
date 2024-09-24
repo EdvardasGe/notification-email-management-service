@@ -28,7 +28,7 @@ public class NotificationServiceTest {
     private NotificationService notificationService;
 
     @Test
-    public void testSendNotification() {
+    public void send_notification() {
         String recipientEmail = "test@example.com";
         String subject = "Test Subject";
         String notificationBody = "Test Body";
